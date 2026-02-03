@@ -1,0 +1,17 @@
+from transformers import pipeline
+
+# Load pre-trained sentiment analysis pipeline
+sentiment_pipeline = pipeline("sentiment-analysis")
+
+texts = [
+    "I love learning NLP!",
+    "This is the worst experience ever.",
+    "The movie was okay, not great."
+]
+
+# Predict sentiment
+for text in texts:
+    result = sentiment_pipeline(text)[0]
+    print(f"Text: {text}")
+    print(f"Label: {result['label']}, Confidence: {result['score']:.3f}")
+    print("-" * 40)
